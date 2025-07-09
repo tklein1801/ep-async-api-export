@@ -1,0 +1,39 @@
+{
+  "name": "@tklein1801/ep-async-api-export",
+  "version": "1.0.0",
+  "author": "Thorben Klein",
+  "license": "",
+  "description": "A compact CLI tool to export AsyncAPI schemas from the SAP AEM Event Portal and Solace Pub/Sub+ Event Portal.",
+  "bin": {
+    "ep-async-api-export": "./lib/cli.js"
+  },
+  "scripts": {
+    "start": "node lib/cli.js",
+    "build": "rimraf lib && tsc",
+    "test": "vitest run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tklein1801/ep-async-api-export"
+  },
+  "publishConfig": {
+    "access": "public",
+    "tag": "latest"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.10",
+    "@types/prompts": "^2.4.9",
+    "prettier": "^3.6.2",
+    "rimraf": "^6.0.1",
+    "tsx": "^4.20.3",
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.4"
+  },
+  "dependencies": {
+    "@drizzle-team/brocli": "^0.11.0",
+    "@solace-labs/ep-openapi-node": "^3.0.0",
+    "@solace-labs/ep-rt-openapi-node": "^1.1.0",
+    "@solace-labs/ep-sdk": "^0.63.0",
+    "prompts": "^2.4.2"
+  }
+}

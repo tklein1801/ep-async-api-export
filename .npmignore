@@ -1,0 +1,12 @@
+node_modules/
+.github/
+ci/
+src/**
+tsconfig.json
+.prettierrc
+
+# Ignore test related stuff...
+lib/src/test/
+*.spec.*
+*.test.*
+vitest.config.ts
