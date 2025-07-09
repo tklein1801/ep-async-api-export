@@ -16,6 +16,7 @@ npx @tklein1801/ep-async-api-export --help
 ### Start developing
 
 > [!NOTE]
+> You can look up in the [Solace Documentation](https://docs.solace.com/Cloud/ght_api_tokens.htm) on how to manage your API tokens.
 
 1. Clone this repository
 
@@ -84,4 +85,3 @@ These points offer opportunities for improvement:
 | :------------------------------------------------------------ | :---------------------------------------------------------------- |
 | [drizzle-team/brocli](https://github.com/drizzle-team/brocli) | This package was used to build the CLI                            |
 | [terkelg/prompts](https://github.com/terkelg/prompts)         | Used for implementing interactive prompts                         |
-| [@asyncapi/parser-js](https://github.com/asyncapi/parser-js/) | I've took the `spec-types` from `/packages/parser/src/spec-types` |
