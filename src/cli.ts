@@ -1,18 +1,18 @@
 #!/usr/bin/env node
 
 import {boolean, string, run} from '@drizzle-team/brocli';
-import {createLogger, type LogLevel} from './logger';
+import {createLogger, LogLevel} from '@tklein1801/logger.js';
 import {EpSdkClient, EpSdkConsoleLogger} from '@solace-labs/ep-sdk';
 import {maptoEPSdkLogLevel} from './utils/mapLogLevel.util';
-import {exportCmd} from './commands';
+import {exportCmd} from './commands/export.cmd';
 import fs from 'fs';
 import {OpenAPI as EpOpenApi} from '@solace-labs/ep-openapi-node';
 import {OpenAPI as EpRtOpenApi} from '@solace-labs/ep-rt-openapi-node';
 import path from 'path';
 import {name as CLI_NAME, description as CLI_DESCRIPTION, version as CLI_VERSION} from '../package.json';
 
-const DEFAULT_LOG_LEVEL: LogLevel = 'info';
-export const logger = createLogger({label: 'cli', level: DEFAULT_LOG_LEVEL});
+const DEFAULT_LOG_LEVEL: LogLevel = LogLevel.INFO;
+export const logger = createLogger({scope: 'cli', level: DEFAULT_LOG_LEVEL});
 const epSdkConsoleLogger = new EpSdkConsoleLogger(CLI_NAME, maptoEPSdkLogLevel(DEFAULT_LOG_LEVEL));
 
 run([exportCmd], {
@@ -33,13 +33,13 @@ run([exportCmd], {
       case 'before':
         // Keep this code as far up as possible in order to log as much as possible when executing with the verbose flag
         if (options.verbose && !options.silent) {
-          const logLevel: LogLevel = 'debug';
+          const logLevel: LogLevel = LogLevel.DEBUG;
           // Set log level to debug if verbose is enabled
           logger.setLogLevel(logLevel);
           epSdkConsoleLogger.setLogLevel(maptoEPSdkLogLevel(logLevel));
         } else if (options.silent) {
-          logger.setLogLevel('silent');
-          epSdkConsoleLogger.setLogLevel(maptoEPSdkLogLevel('silent'));
+          logger.setLogLevel(LogLevel.SILENT);
+          epSdkConsoleLogger.setLogLevel(maptoEPSdkLogLevel(LogLevel.SILENT));
         }
 
         try {
@@ -77,7 +77,7 @@ run([exportCmd], {
         break;
 
       case 'after':
-        const logLevel: LogLevel = 'info';
+        const logLevel: LogLevel = LogLevel.INFO;
         // Set log level to default log level after command execution
         logger.setLogLevel(logLevel);
         epSdkConsoleLogger.setLogLevel(maptoEPSdkLogLevel(logLevel));

@@ -2,7 +2,7 @@ import {boolean, command, string} from '@drizzle-team/brocli';
 import prompts, {type Choice} from 'prompts';
 import {logger} from '../cli';
 import {ApplicationsService, EventApIsService, ApplicationDomainsService} from '@solace-labs/ep-openapi-node';
-import {writeOutput} from '../utils';
+import {writeOutput} from '../utils/writeOutput.util';
 
 export const exportCmd = command({
   name: 'export',
@@ -89,7 +89,6 @@ export const exportCmd = command({
     }
 
     // 3. Choose between Application or Event API
-    console.log(options);
     if (!options.schemaSource) {
       const SCHEMA_SOURCE_OPTIONS: Choice[] = [
         {title: 'Application', value: 'application'},

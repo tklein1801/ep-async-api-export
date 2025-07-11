@@ -1,17 +1,19 @@
 import {EEpSdkLogLevel} from '@solace-labs/ep-sdk';
-import {type LogLevel} from '../logger';
+import {LogLevel} from '@tklein1801/logger.js';
 
 export function maptoEPSdkLogLevel(level: LogLevel): EEpSdkLogLevel {
   switch (level) {
-    case 'debug':
+    case LogLevel.DEBUG:
       return EEpSdkLogLevel.Debug;
-    case 'info':
+    case LogLevel.INFO:
       return EEpSdkLogLevel.Info;
-    case 'warn':
+    case LogLevel.WARN:
       return EEpSdkLogLevel.Warn;
-    case 'error':
+    case LogLevel.ERROR:
       return EEpSdkLogLevel.Error;
-    default:
+    case LogLevel.FATAL:
+      return EEpSdkLogLevel.FatalError;
+    case LogLevel.SILENT:
       return EEpSdkLogLevel.Silent;
   }
 }

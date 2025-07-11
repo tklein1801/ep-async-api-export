@@ -34,6 +34,7 @@
     "@solace-labs/ep-openapi-node": "^3.0.0",
     "@solace-labs/ep-rt-openapi-node": "^1.1.0",
     "@solace-labs/ep-sdk": "^0.63.0",
+    "@tklein1801/logger.js": "^0.0.1",
     "prompts": "^2.4.2"
   }
 }
