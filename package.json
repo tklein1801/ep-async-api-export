@@ -10,7 +10,7 @@
   "scripts": {
     "start": "node lib/cli.js",
     "build": "rimraf lib && tsc",
-    "test": "vitest run"
+    "test": "vitest run --pass-with-no-tests"
   },
   "repository": {
     "type": "git",
